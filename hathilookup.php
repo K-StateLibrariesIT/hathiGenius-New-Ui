@@ -7,12 +7,21 @@
 
 /*Built for Kansas State University -- Go Wildcats!!!*/
 /*hathiGenius-----an app built to determine availability of hathitrust materials*/
-	if (!ini_get('log_errors') && !ini_get('log_startup_errors')) {
-	    error_reporting(E_ERROR | E_PARSE);
-		ini_set('log_startup_errors',1);
-		ini_set("log_errors", True);
-		ini_set("error_log", "PATH TO YOUR ERROR LOG FOLDER.log");
-	}
+if (!ini_get('log_startup_errors')) {
+    ini_set('log_startup_errors', '1');
+}
+
+if (!ini_get('log_errors')) {
+    ini_set('log_errors', true);
+}
+
+
+// Set Path to your error log folder
+$path = null;
+
+if (!ini_get('error_log') && !is_null($path)) {
+    ini_set("error_log", $path . "hathilookup.log");
+}
 
 	$datasink=$_GET["datasink"];
 	$checko=strlen($datasink);
