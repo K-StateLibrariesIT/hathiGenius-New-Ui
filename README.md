@@ -12,11 +12,15 @@ The hathilookup.php file should be saved to an application server in a directory
 
 The javascript in the "custom_js_for_package.js" file must be inserted in the custom.js Primo package. It may either be inserted in the anonymous function provided, or the code within can be added to an existing anonymous function. If integrating with browzine, the main code for browzine should be outside of the app.controller, with a single directive calling the browzine inside the app.controller, like so:
 
+```javascript
 window.browzine.primo.searchResult($scope);
+```
 
 hathiGenius and the browzine actuator need to share the same controller, with the browzine directive appearing immediately after the first app.controller line
 
-jQuery must be added to Primo's UI (it is no longer present by default) in a first anonymous function (for ex.: 
+jQuery must be added to Primo's UI (it is no longer present by default) in a first anonymous function (for ex.:
+
+```javascript
 (function()  {
             /* Load jQuery */
             var jquerymini = document.createElement("script");
@@ -27,3 +31,4 @@ jQuery must be added to Primo's UI (it is no longer present by default) in a fir
             c.parentNode.insertBefore(jquerymini, c); 
     
 })();
+```
